@@ -1,0 +1,12 @@
+Given an array 'arr' with 'n' elements, the task is to rotate the array to the left by 'k' steps, 
+where 'k' is non-negative.
+
+vector<int> rotateArray(vector<int>arr, int k) {
+for(int i = 0; i < k; i++){
+        int key = arr[0];
+        int n = arr.size();
+        for(int j = 0; j < n-1; j++) arr[j] = arr[j+1];
+        arr[n-1] = key; 
+    }
+    return arr;
+}
