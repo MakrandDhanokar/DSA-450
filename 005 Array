@@ -1,0 +1,16 @@
+Problem statement
+You are given an array 'ARR' consisting of 'N' integers. You need to rearrange the array 
+elements such that all negative numbers appear before all positive numbers.
+
+#include <bits/stdc++.h>
+vector<int> separateNegativeAndPositive(vector<int> &num){
+  vector<int> pos, neg;
+  for (int i = 0; i < num.size(); i++){
+    if(num[i] >= 0) pos.push_back(nums[i]);
+    else if (num[i] < 0) neg.push_back(nums[i]);
+  }
+  sort(pos.begin(), pos.end());
+  sort(neg.begin(), neg.end()); 
+  neg.insert(neg.end(), pos.begin(), pos.end());
+  return neg;
+}
