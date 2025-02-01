@@ -1,0 +1,23 @@
+Problem statement
+You are given an array ‘A’ of length ‘N’ consisting only of positive integers and an integer ‘K’. 
+You have to update every element of the array by increasing or decreasing its value by ‘K’ only once.
+Your task is to minimize the difference between maximum and minimum elements of the array after 
+performing the increment or decrement on every element of the array.
+
+#include <bits/stdc++.h> 
+int minimizeIt(vector<int> A, int k)
+{
+	int n = A.size();
+	if(n==1) return 0;
+	sort(A.begin(), A.end());
+	int diff = A[n-1] - A[0];
+	int min,max;
+	for(int i =0; i < n; i++){
+		if(A[i]-k<0) continue;
+		max = std::max(A[i-1]+k, A[n-1]-k);
+		min = std::min(A[0]+k, A[i]-k);
+		diff = std::min(diff,max-min);
+	}
+	return diff;
+
+}
