@@ -1,0 +1,13 @@
+Problem statement
+You have been given an integer array/list(ARR) of size 'N'. It only contains 0s, 1s and 2s. 
+Write a solution to sort this array/list.
+
+#include <bits/stdc++.h>
+void sort012(int *arr, int size){
+  int l = 0, m = 0, n = size - 1;
+  while(m <= n){
+    if(arr[m] == 0) std::swap(arr[m++], arr[l++]);
+    else if(arr[m] == 1) m++;
+    else std::swap(arr[m], arr[n--]);
+  }
+}
